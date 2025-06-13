@@ -1,182 +1,35 @@
-# tiny-plants-eCommerce
+# 🌿 Plantify – eCommerce for Plants
 
-![Actions Status](https://github.com/jeremymaya/tiny-plants-eCommerce/workflows/build/badge.svg)  
-![Actions Status](https://github.com/jeremymaya/tiny-plants-eCommerce/workflows/deploy/badge.svg)
+An ASP.NET Core MVC web application for buying indoor plants. Users can browse, add to cart, and place orders. Admins can manage product inventory and view orders.
 
-Author: [Karina Chen](https://github.com/karina6188), and Kyungrae Kim
+## 🔧 Features
 
-Website : <https://tinyplants.herokuapp.com>
+- User registration, login, and claims-based greeting
+- Role-based authorization with admin access to inventory and orders
+- Add to cart and checkout functionality
+- Product catalog with 10+ items
+- Entity Framework Core with SQL Server
+- Azure Blob Storage integration for image handling
+- Clean MVC architecture using Razor Pages
+- Bootstrap 5 for responsive UI
 
----
+## 🗂 Tech Stack
 
-## About This Program
+- ASP.NET Core MVC (.NET 8)
+- Entity Framework Core (Code First)
+- Microsoft Identity
+- Azure Blob Storage
+- Bootstrap 5
+- Razor Pages
 
-This is an eCommerce store TINY PLANTS built with ASP.NET Core's MVC and Razor Pages. The web app features a user login security system, a welcoming home page, a product page, and a product details page that allows the user to add items into cart for checkout. This web app is built to provide a satisfying shopping experience to our users.
+## 🧠 Entity Relationships
 
----
+- One-to-many: Cart ↔ CartItems
+- One-to-many: Orders ↔ OrderItems
+- One-to-many: Products ↔ CartItems & OrderItems
 
-## Features
+## 👤 Author
 
-### Products
-
-This e-commerce store sells tiny plants including cactuses, flowers, and evergreen plants that can be placed indoor. There are currently total of 10 products available on this website.
-
-### Claims
-
-This web app captures claims of a user's first and last name. After a user registers a new account or logins to the site, a greeting message shows up on the top right corner of the nav bar with the user's first and last name.
-
-### Policies
-
-This web app uses "AdminOnly" policy to grant Admin special access privileges to `/Admin` and `/Inventory` page. This policy has been enforced so that only Admin can control the store inventory. To test the policy, use the following credential to log into the Admin account:
-
-    * Account: admin@email.com
-    * Password: ReallyStrongPassword1234!
-
-### Entity Relationship Diagram
-
-![erd](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/erd.png)
-
-* Cart table has one to many relationship with CarItems table
-* Order table has one to many relationship with OrderItems table
-* Product table has one to many relationship with CartItems table
-* Product table has one to many relationship with OrderItems table
-
----
-
-## Vulnerability Report
-
-https://github.com/jeremymaya/Code-401-eCommerce/blob/master/vulnerability-report.md
-
----
-
-## Visuals
-
-### Home
-
-#### Home - Logged Out
-
-![home-loggedout](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/home-loggedout.png)
-
-#### Home - Logged In (User)
-
-![home-loggedin-user](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/home-loggedin-user.png)
-
-### Account
-
-#### Register
-
-![account-register](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/account-register.png)
-
-#### Login
-
-![account-login](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/account-login.png)
-
-#### User Profile
-
-![user-profile](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/user-profile.png)
-
-#### Manage Orders (User)
-
-![orders-user](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/orders-user.png)
-
-#### Manage Order Details (User)
-
-![order-details-user](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/order-details-user.png)
-
-### Shop
-
-#### Shop Index
-
-![shop](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/shop.png)
-
-#### Shop/Product - Logged Out
-
-![shop-product-loggedout](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/shop-product-loggedout.png)
-
-#### Shop/Product - Logged In
-
-![shop-product-loggedin](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/shop-product-loggedin.png)
-
-#### Shop/Product - MiniCart
-
-![shop-product-loggedin-minicart](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/shop-product-loggedin-minicart.png)
-
-#### Shop/Cart (Empty)
-
-![shop-cart-empty](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/shop-cart-empty.png)
-
-#### Shop/Cart
-
-![shop-cart](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/shop-cart.png)
-
-### Checkout
-
-#### Checkout Index
-
-![checkout](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/checkout.png)
-
-#### Checkout/Receipt
-
-![checkout-receipt](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/checkout-receipt.png)
-
-### Admin
-
-#### Admin Index
-
-![admin](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/admin.png)
-
-#### Manage Blob
-
-![admin-blob](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/admin-blob.png)
-
-#### Manage Orders (Admin)
-
-![orders-admin](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/orders-admin.png)
-
-#### Manage Order Details (Admin)
-
-![order-details-admin](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/order-details-admin.png)
-
-#### Inventory
-
-![inventory-home](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/inventory-home.png)
-
-#### Inventory/Create
-
-![inventory-create](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/inventory-create.png)
-
-#### Inventory/Edit
-
-![inventory-edit](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/inventory-edit.png)
-
-#### Inventory/Details
-
-![inventory-details](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/inventory-details.png)
-
-#### Inventory/Delete
-
-![inventory-delete](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/inventory-delete.png)
-
----
-
-## Resources
-
-* [Add or Remove Multiple Entities in Entity Framework](https://www.entityframeworktutorial.net/entityframework6/addrange-removerange.aspx)  
-* [Adding Email](https://www.learnrazorpages.com/razor-pages/tutorial/bakery/email)  
-* [Azure Blob storage client library v12 for .NET](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-dotnet)  
-* [Azure Storage CRUD Operations In MVC Using C#](https://www.c-sharpcorner.com/article/azure-storage-crud-operations-in-mvc-using-c-sharp-part-two/)  
-* [Handler Methods in Razor Pages](https://www.learnrazorpages.com/razor-pages/handler-methods)  
-* [HtmlHelper - Editor](https://www.tutorialsteacher.com/mvc/htmlhelper-editor-editorfor)  
-* [Model Binding](https://www.learnrazorpages.com/razor-pages/model-binding)  
-* [Upload files in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads?view=aspnetcore-3.1)  
-* [Upload File In Azure Blob Storage Using ASP.NET Core](https://www.c-sharpcorner.com/article/upload-files-in-azure-blob-storage-using-asp-net-core/)
-
----
-
-## Change Log
-
-* 1.3: *Docker support added and deployed to Heroku* - 14 October 2020
-* 1.2: *Sprint 3 Completed, Initial Submission* - 16 Dec 2019  
-* 1.1: *Sprint 2 Completed, Initial Submission* - 03 Dec 2019  
-* 1.0: *Sprint 1 Completed, Initial Submission* - 26 Nov 2019  
-* 0.0: *Project Initiated* - 18 Nov 2019  
+**Amith Acharya**  
+Bengaluru, India  
+Passionate about .NET MVC, clean architecture, and scalable web apps.
